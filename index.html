@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧘 موقع التركيز الذكي</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ====== واجهة الترحيب ====== -->
+    <section id="welcomeScreen" class="screen active">
+        <div class="welcome-box">
+            <div class="logo">📚</div>
+            <h1>مرحباً بك في <span>منصة التركيز</span></h1>
+            <p>اختر طريقة الدراسة المناسبة لك وابدأ رحلة التركيز</p>
+            <button id="enterBtn" class="btn-primary">🚀 ابدأ الآن</button>
+        </div>
+    </section>
+
+    <!-- ====== الواجهة الرئيسية ====== -->
+    <section id="mainScreen" class="screen">
+        <div class="container">
+            <!-- رأس الصفحة -->
+            <header>
+                <h2>⏳ منصة التركيز</h2>
+                <div class="stats">
+                    <span>📊 المهام: <span id="totalTasks">0</span></span>
+                    <span>⏱ اليوم: <span id="todayTime">00:00</span></span>
+                </div>
+            </header>
+
+            <!-- اختيار التقنية -->
+            <div class="technique-selector">
+                <button class="tech-btn active" data-tech="pomodoro">🍅 بومودورو</button>
+                <button class="tech-btn" data-tech="fiftytwo">⚡ 52/17</button>
+                <button class="tech-btn" data-tech="deep">🧠 دراسة مكثفة</button>
+            </div>
+
+            <!-- عرض معلومات التقنية -->
+            <div class="tech-info" id="techInfo">
+                <span id="techName">🍅 بومودورو</span>
+                <span id="techDesc">25 دقيقة تركيز + 5 دقائق راحة</span>
+            </div>
+
+            <!-- المؤقت -->
+            <div class="timer-circle">
+                <div class="timer-ring">
+                    <svg width="200" height="200">
+                        <circle cx="100" cy="100" r="85" class="ring-bg" />
+                        <circle cx="100" cy="100" r="85" class="ring-progress" id="progressRing" />
+                    </svg>
+                    <div class="timer-text">
+                        <span id="timerDisplay">25:00</span>
+                        <small id="phaseLabel">تركيز</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- أزرار التحكم -->
+            <div class="controls">
+                <button id="startBtn" class="ctrl-btn play">▶</button>
+                <button id="pauseBtn" class="ctrl-btn pause">⏸</button>
+                <button id="resetBtn" class="ctrl-btn reset">⟳</button>
+            </div>
+
+            <!-- عداد الجلسات -->
+            <div class="session-counter">
+                <span>🔁 الجلسة: <span id="sessionCount">1</span></span>
+                <span>✅ المهام المنجزة: <span id="taskCount">0</span></span>
+            </div>
+
+            <!-- زر إنجاز مهمة -->
+            <button id="doneTaskBtn" class="btn-success">✅ أنجزت مهمة</button>
+
+            <!-- خيارات إضافية -->
+            <div class="extra-options">
+                <div class="sound-option">
+                    <label>🎵 صوت خلفية</label>
+                    <select id="bgSound">
+                        <option value="none">لا شيء</option>
+                        <option value="rain">🌧 مطر</option>
+                        <option value="waves">🌊 أمواج</option>
+                        <option value="fire">🔥 نار</option>
+                        <option value="forest">🌲 غابة</option>
+                    </select>
+                </div>
+                <div class="theme-option">
+                    <label>🌙 المظهر</label>
+                    <button id="themeToggle">داكن</button>
+                </div>
+            </div>
+
+            <!-- حالة التطبيق -->
+            <p class="status-message" id="statusMsg">✨ جاهز للتركيز</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
