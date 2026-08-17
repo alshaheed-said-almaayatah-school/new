@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>🎯 استراتيجيات التعلم والتركيز</title>
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -34,7 +34,10 @@
     <section id="mainScreen" class="screen">
         <div class="container">
             <header>
-                <h2>🎯 <span class="gold">استراتيجيات</span> التعلم</h2>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <button id="backBtn" style="background:transparent; border:none; color:var(--gold); font-size:1.5rem; cursor:pointer;">←</button>
+                    <h2>🎯 <span class="gold">استراتيجيات</span> التعلم</h2>
+                </div>
                 <div class="stats">
                     <span>📚 الدروس: <span id="totalTasks">0</span></span>
                     <span>⏱ اليوم: <span id="todayTime">00:00</span></span>
@@ -97,7 +100,7 @@
                     <label>🎵 صوت</label>
                     <select id="bgSound">
                         <option value="none">🚫 لا شيء</option>
-                        <option value="rain" selected>🌧 مطر</option>
+                        <option value="rain">🌧 مطر</option>
                         <option value="fire">🔥 نار</option>
                         <option value="waves">🌊 أمواج</option>
                         <option value="forest">🌲 غابة</option>
