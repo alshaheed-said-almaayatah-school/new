@@ -6,7 +6,7 @@
     transition: all 0.3s ease;
 }
 
-body {
+html, body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -209,6 +209,21 @@ header h2 .gold {
     color: var(--gold);
 }
 
+#backBtn {
+    background: transparent;
+    border: none;
+    color: var(--gold);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0 5px;
+    transition: 0.3s;
+}
+
+#backBtn:hover {
+    transform: scale(1.2);
+    color: var(--gold-light);
+}
+
 .stats {
     display: flex;
     gap: 0.8rem;
@@ -244,6 +259,7 @@ header h2 .gold {
     color: var(--text-secondary);
     font-weight: 400;
     transition: 0.3s;
+    touch-action: manipulation;
 }
 
 .tech-btn:hover {
@@ -284,6 +300,7 @@ header h2 .gold {
     border-radius: 30px;
     font-size: 0.85rem;
     cursor: pointer;
+    touch-action: manipulation;
 }
 
 .goal-section select:focus {
@@ -373,6 +390,7 @@ header h2 .gold {
     background: rgba(255, 255, 255, 0.02);
     color: var(--text-secondary);
     transition: 0.3s;
+    touch-action: manipulation;
 }
 
 .ctrl-btn:hover {
@@ -421,6 +439,7 @@ header h2 .gold {
     font-size: 0.95rem;
     cursor: pointer;
     transition: 0.3s;
+    touch-action: manipulation;
 }
 
 .btn-success:hover {
@@ -473,6 +492,7 @@ header h2 .gold {
     font-size: 0.75rem;
     color: var(--text-secondary);
     cursor: pointer;
+    touch-action: manipulation;
 }
 
 .extra-options select:hover,
@@ -506,45 +526,125 @@ body.lang-en .welcome-box .definition {
     direction: ltr;
 }
 
+/* ====== توافق مع الهاتف ====== */
 @media (max-width: 480px) {
+    body {
+        padding: 0.5rem;
+    }
+
     #welcomeScreen,
     #mainScreen {
-        padding: 1.5rem 1.2rem;
-        border-radius: 32px;
+        padding: 1.5rem 1rem;
+        border-radius: 28px;
+        min-height: 95vh;
     }
+
+    .welcome-box {
+        padding: 0;
+    }
+
     .welcome-box h1 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
+
+    .welcome-box .definition {
+        font-size: 0.8rem;
+        padding: 1rem;
+    }
+
+    .welcome-box .logo-icon {
+        font-size: 3.2rem;
+    }
+
+    .btn-primary {
+        padding: 0.7rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+    }
+
     .timer-text .minutes {
         font-size: 2.6rem;
     }
+
     .timer-ring {
         width: 170px;
         height: 170px;
     }
+
     .controls {
         gap: 0.8rem;
     }
+
     .ctrl-btn {
-        width: 44px;
-        height: 44px;
-        font-size: 1rem;
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
     }
+
     .goal-section {
         flex-direction: column;
         align-items: stretch;
         gap: 0.5rem;
     }
+
+    .goal-section select {
+        width: 100%;
+    }
+
     .stats {
-        font-size: 0.65rem;
-        padding: 0.2rem 0.7rem;
+        font-size: 0.6rem;
+        padding: 0.2rem 0.6rem;
+        gap: 0.4rem;
+        flex-wrap: wrap;
     }
+
     header h2 {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
+
     .tech-btn {
         font-size: 0.7rem;
-        padding: 0.3rem 0.8rem;
+        padding: 0.3rem 0.7rem;
+    }
+
+    .session-counter {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.8rem;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+    }
+
+    .btn-success {
+        font-size: 0.85rem;
+        padding: 0.6rem;
+    }
+
+    .motivation-box {
+        min-height: 50px;
+        padding: 0.6rem 1rem;
+    }
+
+    .motivation-box p {
+        font-size: 0.8rem;
+    }
+
+    .extra-options {
+        gap: 0.5rem;
+    }
+
+    .extra-options select,
+    .extra-options button {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+    }
+
+    .lang-toggle {
+        font-size: 0.7rem;
+        padding: 0.3rem 1rem;
+    }
+
+    #backBtn {
+        font-size: 1.2rem;
     }
 }
 
@@ -555,5 +655,39 @@ body.lang-en .welcome-box .definition {
     .timer-ring {
         width: 140px;
         height: 140px;
+    }
+    #welcomeScreen,
+    #mainScreen {
+        padding: 1rem 0.8rem;
+        border-radius: 20px;
+    }
+    .welcome-box h1 {
+        font-size: 1rem;
+    }
+}
+
+/* ====== تحسينات للمس ====== */
+@media (pointer: coarse) {
+    button,
+    select,
+    .tech-btn,
+    .ctrl-btn,
+    .btn-success,
+    .btn-primary {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .ctrl-btn {
+        min-width: 48px;
+        min-height: 48px;
+    }
+
+    .tech-btn {
+        padding: 0.5rem 1rem;
+    }
+
+    select {
+        padding: 0.4rem 1rem;
     }
 }
