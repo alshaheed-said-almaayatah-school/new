@@ -30,6 +30,7 @@ let sessionCount = 1;
 let taskCount = 0;
 let totalTasks = 0;
 let totalSecondsToday = 0;
+let currentGoal = '2-lessons';
 let goalLessons = 2;
 let isEnglish = false;
 
@@ -60,20 +61,16 @@ const motivationMessage = document.getElementById('motivationMessage');
 const welcomeTitle = document.getElementById('welcomeTitle');
 const welcomeSub = document.getElementById('welcomeSub');
 const welcomeDef = document.getElementById('welcomeDef');
-const goalLabel = document.getElementById('goalLabel');
 
 // ====== زر الدخول ======
-enterBtn.addEventListener('click', function(e) {
-    e.preventDefault();
+enterBtn.addEventListener('click', function() {
     welcomeScreen.classList.remove('active');
     mainScreen.classList.add('active');
 });
 
 // ====== زر الرجوع ======
-backBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    // إيقاف المؤقت إذا كان شغال
+backBtn.addEventListener('click', function() {
+    // إيقاف المؤقت إذا كان شغالاً
     if (isRunning) {
         clearInterval(timer);
         isRunning = false;
@@ -84,8 +81,7 @@ backBtn.addEventListener('click', function(e) {
 });
 
 // ====== اللغة ======
-langToggle.addEventListener('click', function(e) {
-    e.preventDefault();
+langToggle.addEventListener('click', function() {
     isEnglish = !isEnglish;
     document.body.classList.toggle('lang-en', isEnglish);
     langToggle.textContent = isEnglish ? '🇸🇦 عربي' : '🇬🇧 English';
@@ -95,26 +91,23 @@ langToggle.addEventListener('click', function(e) {
         welcomeSub.textContent = 'Master the art of focus and boost your academic performance';
         welcomeDef.innerHTML =
             '<strong>📖 About this section:</strong><br>This section is dedicated to developing learning and focus skills through proven techniques like <strong>Pomodoro</strong>, <strong>52/17</strong>, and <strong>Deep Study</strong>. Our goal is to help you achieve your academic goals efficiently and without burnout.';
-        goalLabel.textContent = '🎯 Set your goal:';
-        doneTaskBtn.textContent = '✅ Completed a lesson';
+        document.querySelector('#goalLabel').textContent = '🎯 Set your goal:';
+        document.querySelector('.btn-success').textContent = '✅ Completed a lesson';
         statusMsg.textContent = '✨ Ready to focus';
-        updateGoalDisplay();
     } else {
         welcomeTitle.innerHTML = 'أهلاً بك في <span class="gold">قسم استراتيجيات<br>التعلم والتركيز</span>';
         welcomeSub.textContent = 'حيث تتقن فن التركيز وتُحسّن أداءك الدراسي';
         welcomeDef.innerHTML =
             '<strong>📖 تعريف القسم:</strong><br>هذا القسم مخصص لتطوير مهارات التعلم والتركيز من خلال تقنيات مدروسة مثل <strong>بومودورو</strong>، <strong>52/17</strong>، و<strong>الدراسة المكثفة</strong>. نهدف إلى مساعدتك على تحقيق أهدافك الأكاديمية بكفاءة وبدون إرهاق.';
-        goalLabel.textContent = '🎯 حدّد هدفك:';
-        doneTaskBtn.textContent = '✅ أنجزت درساً';
+        document.querySelector('#goalLabel').textContent = '🎯 حدّد هدفك:';
+        document.querySelector('.btn-success').textContent = '✅ أنجزت درساً';
         statusMsg.textContent = '✨ جاهز للتركيز';
-        updateGoalDisplay();
     }
 });
 
 // ====== تبديل التقنيات ======
 techBtns.forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        e.preventDefault();
+    btn.addEventListener('click', function() {
         techBtns.forEach(b => b.classList.remove('active'));
         this.classList.add('active');
         currentTech = this.dataset.tech;
@@ -124,26 +117,19 @@ techBtns.forEach(btn => {
 });
 
 // ====== الهدف ======
-goalSelect.addEventListener('change', function(e) {
-    e.preventDefault();
+goalSelect.addEventListener('change', function() {
     const val = this.value;
-    const parts = val.split('-');
-    const num = parseInt(parts[0]);
-    goalLessons = num;
-    updateGoalDisplay();
-    updateGoalProgress();
-});
-
-function updateGoalDisplay() {
-    const val = goalSelect.value;
+    currentGoal = val;
     const parts = val.split('-');
     const num = parseInt(parts[0]);
     const type = parts[1];
+    goalLessons = num;
     const label = isEnglish ?
         (type === 'lesson' ? `${num} lesson${num > 1 ? 's' : ''}` : `${num} unit${num > 1 ? 's' : ''}`) :
         (type === 'lesson' ? `${num} درس${num > 1 ? 'ً' : ''}` : `${num} وحدة${num > 1 ? 'ً' : ''}`);
     goalDisplay.textContent = isEnglish ? `🎯 Goal: ${label}` : `🎯 الهدف: ${label}`;
-}
+    updateGoalProgress();
+});
 
 function updateGoalProgress() {
     goalProgress.textContent = `${taskCount}/${goalLessons}`;
@@ -151,11 +137,11 @@ function updateGoalProgress() {
         motivationMessage.textContent = isEnglish ?
             '🎉 Congratulations! You achieved your goal! 🎉' :
             '🎉 مبروك! لقد حققت هدفك! 🎉';
-        doneTaskBtn.style.borderColor = '#d4a847';
-        doneTaskBtn.style.color = '#d4a847';
+        document.querySelector('.btn-success').style.borderColor = '#d4a847';
+        document.querySelector('.btn-success').style.color = '#d4a847';
     } else {
-        doneTaskBtn.style.borderColor = 'rgba(212, 168, 71, 0.1)';
-        doneTaskBtn.style.color = 'var(--text-primary)';
+        document.querySelector('.btn-success').style.borderColor = 'rgba(212, 168, 71, 0.1)';
+        document.querySelector('.btn-success').style.color = 'var(--text-primary)';
     }
 }
 
@@ -255,24 +241,12 @@ function updateTodayTime() {
     todayTimeEl.textContent = `${String(hrs).padStart(2, '0')}:${String(mins).padStart(2, '0')}`;
 }
 
-// ====== أحداث الأزرار (مع منع الـ default) ======
-startBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    startTimer();
-});
+// ====== أحداث الأزرار ======
+startBtn.addEventListener('click', startTimer);
+pauseBtn.addEventListener('click', pauseTimer);
+resetBtn.addEventListener('click', resetTimer);
 
-pauseBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    pauseTimer();
-});
-
-resetBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    resetTimer();
-});
-
-doneTaskBtn.addEventListener('click', function(e) {
-    e.preventDefault();
+doneTaskBtn.addEventListener('click', function() {
     taskCount++;
     taskCountEl.textContent = taskCount;
     totalTasks++;
@@ -284,13 +258,11 @@ doneTaskBtn.addEventListener('click', function(e) {
 });
 
 // ====== تبديل المظهر ======
-themeToggle.addEventListener('click', function(e) {
-    e.preventDefault();
+themeToggle.addEventListener('click', function() {
     document.body.classList.toggle('dark-gold');
-    this.textContent = document.body.classList.contains('dark-gold') ? 'داكن' : 'فاتح';
+    this.textContent = document.body.classList.contains('dark-gold') ? '🌙 داكن' : '☀️ فاتح';
 });
 
 // ====== تهيئة أولية ======
 resetTimer();
-updateGoalDisplay();
-updateGoalProgress();
+updateDisplay();
