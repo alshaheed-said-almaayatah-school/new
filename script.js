@@ -185,7 +185,6 @@ function startTimer() {
                     sessionCountEl.textContent = sessionCount;
                     statusMsg.textContent = isEnglish ? '🔁 New session' : '🔁 جلسة جديدة';
                     phaseLabel.textContent = isEnglish ? 'Focus' : 'تركيز';
-                    // رسالة تحفيزية عشوائية
                     const randomQuote = motivationalQuotes[Math.floor(Math.random() * motivationalQuotes.length)];
                     motivationMessage.textContent = randomQuote;
                 }
@@ -249,4 +248,9 @@ doneTaskBtn.addEventListener('click', function() {
 // ====== تبديل المظهر ======
 themeToggle.addEventListener('click', function() {
     document.body.classList.toggle('dark-gold');
-    this.textContent =
+    this.textContent = document.body.classList.contains('dark-gold') ? '🌙 داكن' : '☀️ فاتح';
+});
+
+// ====== الأصوات ======
+const audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+let soundInterval
