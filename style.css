@@ -1,4 +1,3 @@
-/* ====== الأساسيات ====== */
 * {
     margin: 0;
     padding: 0;
@@ -29,7 +28,6 @@ body {
     --shadow-gold: rgba(212, 168, 71, 0.15);
 }
 
-/* ====== الشاشات ====== */
 .screen {
     display: none;
     width: 100%;
@@ -55,7 +53,6 @@ body {
     }
 }
 
-/* ====== واجهة الترحيب ====== */
 #welcomeScreen {
     min-height: 90vh;
     background: radial-gradient(ellipse at 50% 30%, #1a1408 0%, #0a0a0a 80%);
@@ -180,7 +177,6 @@ body {
     box-shadow: 0 12px 40px rgba(212, 168, 71, 0.35);
 }
 
-/* ====== الواجهة الرئيسية ====== */
 #mainScreen {
     background: radial-gradient(ellipse at 50% 20%, #14100a 0%, #0a0a0a 90%);
     border-radius: 48px;
@@ -496,7 +492,6 @@ header h2 .gold {
     letter-spacing: 0.5px;
 }
 
-/* ====== اللغة الإنجليزية ====== */
 body.lang-en .screen,
 body.lang-en #welcomeScreen,
 body.lang-en #mainScreen {
@@ -511,7 +506,6 @@ body.lang-en .welcome-box .definition {
     direction: ltr;
 }
 
-/* ====== استجابة للشاشات الصغيرة ====== */
 @media (max-width: 480px) {
     #welcomeScreen,
     #mainScreen {
