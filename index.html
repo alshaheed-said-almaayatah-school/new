@@ -6,9 +6,7 @@
     <title>🎯 استراتيجيات التعلم والتركيز</title>
 
     <style>
-        /* ============================================================
-                   الأساسيات
-                   ============================================================ */
+        /* ====== الأساسيات ====== */
         * {
             margin: 0;
             padding: 0;
@@ -23,13 +21,9 @@
             justify-content: center;
             align-items: center;
             background: #0a0a0a;
-            font-family: 'Segoe UI', sans-serif;
             padding: 1rem;
         }
 
-        /* ============================================================
-                   الوضع الليلي العام (أسود وذهبي)
-                   ============================================================ */
         .dark-gold {
             --bg-primary: #0a0a0a;
             --bg-secondary: #141414;
@@ -43,13 +37,7 @@
             --shadow-gold: rgba(212, 168, 71, 0.15);
         }
 
-        .dark-gold body {
-            background: var(--bg-primary);
-        }
-
-        /* ============================================================
-                   الشاشات
-                   ============================================================ */
+        /* ====== الشاشات ====== */
         .screen {
             display: none;
             width: 100%;
@@ -75,9 +63,7 @@
             }
         }
 
-        /* ============================================================
-                   واجهة الترحيب – الأسود والذهبي
-                   ============================================================ */
+        /* ====== واجهة الترحيب ====== */
         #welcomeScreen {
             min-height: 90vh;
             background: radial-gradient(ellipse at 50% 30%, #1a1408 0%, #0a0a0a 80%);
@@ -165,7 +151,6 @@
             font-weight: 500;
         }
 
-        /* زر اللغة */
         .lang-toggle {
             background: transparent;
             border: 1px solid rgba(212, 168, 71, 0.2);
@@ -203,9 +188,7 @@
             box-shadow: 0 12px 40px rgba(212, 168, 71, 0.35);
         }
 
-        /* ============================================================
-                   الواجهة الرئيسية
-                   ============================================================ */
+        /* ====== الواجهة الرئيسية ====== */
         #mainScreen {
             background: radial-gradient(ellipse at 50% 20%, #14100a 0%, #0a0a0a 90%);
             border-radius: 48px;
@@ -218,7 +201,6 @@
             width: 100%;
         }
 
-        /* ====== رأس الصفحة ====== */
         header {
             display: flex;
             justify-content: space-between;
@@ -256,7 +238,6 @@
             gap: 4px;
         }
 
-        /* ====== اختيار التقنية ====== */
         .technique-selector {
             display: flex;
             gap: 0.5rem;
@@ -289,7 +270,6 @@
             box-shadow: 0 0 30px rgba(212, 168, 71, 0.05);
         }
 
-        /* ====== تحديد الأهداف ====== */
         .goal-section {
             background: rgba(212, 168, 71, 0.03);
             border: 1px solid rgba(212, 168, 71, 0.06);
@@ -329,7 +309,6 @@
             font-weight: 500;
         }
 
-        /* ====== المؤقت الدائري الاحترافي ====== */
         .timer-circle {
             display: flex;
             justify-content: center;
@@ -380,10 +359,6 @@
             font-variant-numeric: tabular-nums;
         }
 
-        .timer-text .minutes .gold {
-            color: var(--gold);
-        }
-
         .timer-text .phase-label {
             display: block;
             font-size: 0.8rem;
@@ -393,7 +368,6 @@
             text-transform: uppercase;
         }
 
-        /* ====== أزرار التحكم ====== */
         .controls {
             display: flex;
             justify-content: center;
@@ -432,7 +406,6 @@
             transform: scale(1.08);
         }
 
-        /* ====== عداد الدروس ====== */
         .session-counter {
             display: flex;
             justify-content: space-between;
@@ -450,7 +423,6 @@
             font-weight: 500;
         }
 
-        /* ====== زر إنجاز درس ====== */
         .btn-success {
             width: 100%;
             background: rgba(212, 168, 71, 0.06);
@@ -469,7 +441,6 @@
             color: var(--gold);
         }
 
-        /* ====== رسالة تحفيزية ====== */
         .motivation-box {
             background: linear-gradient(135deg, rgba(212, 168, 71, 0.03), rgba(212, 168, 71, 0.06));
             border: 1px solid rgba(212, 168, 71, 0.05);
@@ -491,11 +462,6 @@
             opacity: 0.9;
         }
 
-        .motivation-box p .emoji {
-            margin: 0 4px;
-        }
-
-        /* ====== خيارات إضافية ====== */
         .extra-options {
             display: flex;
             justify-content: space-between;
@@ -527,12 +493,6 @@
             color: var(--gold);
         }
 
-        .extra-options select:focus {
-            outline: none;
-            border-color: var(--gold);
-        }
-
-        /* ====== حالة التطبيق ====== */
         .status-message {
             text-align: center;
             margin-top: 0.6rem;
@@ -544,9 +504,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* ============================================================
-                   وضع الإنجليزي (اتجاه يسار)
-                   ============================================================ */
         body.lang-en .screen,
         body.lang-en #welcomeScreen,
         body.lang-en #mainScreen {
@@ -561,58 +518,42 @@
             direction: ltr;
         }
 
-        body.lang-en .timer-text .minutes {
-            direction: ltr;
-        }
-
-        /* ============================================================
-                   استجابة للشاشات الصغيرة
-                   ============================================================ */
         @media (max-width: 480px) {
             #welcomeScreen,
             #mainScreen {
                 padding: 1.5rem 1.2rem;
                 border-radius: 32px;
             }
-
             .welcome-box h1 {
                 font-size: 1.2rem;
             }
-
             .timer-text .minutes {
                 font-size: 2.6rem;
             }
-
             .timer-ring {
                 width: 170px;
                 height: 170px;
             }
-
             .controls {
                 gap: 0.8rem;
             }
-
             .ctrl-btn {
                 width: 44px;
                 height: 44px;
                 font-size: 1rem;
             }
-
             .goal-section {
                 flex-direction: column;
                 align-items: stretch;
                 gap: 0.5rem;
             }
-
             .stats {
                 font-size: 0.65rem;
                 padding: 0.2rem 0.7rem;
             }
-
             header h2 {
                 font-size: 1rem;
             }
-
             .tech-btn {
                 font-size: 0.7rem;
                 padding: 0.3rem 0.8rem;
@@ -628,63 +569,36 @@
                 height: 140px;
             }
         }
-
-        /* ============================================================
-                   إخفاء شريط التمرير
-                   ============================================================ */
-        ::-webkit-scrollbar {
-            width: 4px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold-dark);
-            border-radius: 10px;
-        }
     </style>
 </head>
 
 <body class="dark-gold">
 
-    <!-- ============================================================
-    واجهة الترحيب
-    ============================================================ -->
+    <!-- ====== واجهة الترحيب ====== -->
     <section id="welcomeScreen" class="screen active">
         <div class="welcome-box">
-
-            <!-- زر تبديل اللغة -->
             <button class="lang-toggle" id="langToggle">🇬🇧 English</button>
-
             <span class="logo-icon">🎯</span>
             <div class="gold-line"></div>
-
             <h1 id="welcomeTitle">
                 أهلاً بك في <span class="gold">قسم استراتيجيات<br>التعلم والتركيز</span>
             </h1>
-
             <p class="subtitle" id="welcomeSub">
                 حيث تتقن فن التركيز وتُحسّن أداءك الدراسي
             </p>
-
             <div class="definition" id="welcomeDef">
                 <strong>📖 تعريف القسم:</strong><br>
                 هذا القسم مخصص لتطوير مهارات التعلم والتركيز من خلال تقنيات مدروسة مثل <strong>بومودورو</strong>،
                 <strong>52/17</strong>، و<strong>الدراسة المكثفة</strong>.
                 نهدف إلى مساعدتك على تحقيق أهدافك الأكاديمية بكفاءة وبدون إرهاق.
             </div>
-
             <button class="btn-primary" id="enterBtn">🚀 ابدأ رحلة التركيز</button>
         </div>
     </section>
 
-    <!-- ============================================================
-    الواجهة الرئيسية
-    ============================================================ -->
+    <!-- ====== الواجهة الرئيسية ====== -->
     <section id="mainScreen" class="screen">
         <div class="container">
-
-            <!-- الرأس -->
             <header>
                 <h2>🎯 <span class="gold">استراتيجيات</span> التعلم</h2>
                 <div class="stats">
@@ -693,14 +607,12 @@
                 </div>
             </header>
 
-            <!-- اختيار التقنية -->
             <div class="technique-selector">
                 <button class="tech-btn active" data-tech="pomodoro">🍅 بومودورو</button>
                 <button class="tech-btn" data-tech="fiftytwo">⚡ 52/17</button>
                 <button class="tech-btn" data-tech="deep">🧠 مكثّف</button>
             </div>
 
-            <!-- تحديد الهدف -->
             <div class="goal-section" id="goalSection">
                 <label id="goalLabel">🎯 حدّد هدفك:</label>
                 <select id="goalSelect">
@@ -715,7 +627,6 @@
                 <span class="goal-display" id="goalDisplay">🎯 الهدف: درسَين</span>
             </div>
 
-            <!-- المؤقت الدائري -->
             <div class="timer-circle">
                 <div class="timer-ring">
                     <svg width="210" height="210" viewBox="0 0 210 210">
@@ -729,29 +640,24 @@
                 </div>
             </div>
 
-            <!-- أزرار التحكم -->
             <div class="controls">
                 <button id="startBtn" class="ctrl-btn play">▶</button>
                 <button id="pauseBtn" class="ctrl-btn">⏸</button>
                 <button id="resetBtn" class="ctrl-btn">⟳</button>
             </div>
 
-            <!-- عداد الدروس -->
             <div class="session-counter">
                 <span>🔁 الجلسة: <span class="gold" id="sessionCount">1</span></span>
                 <span>✅ الدروس المنجزة: <span class="gold" id="taskCount">0</span></span>
                 <span>🎯 <span id="goalProgress">0/2</span></span>
             </div>
 
-            <!-- زر إنجاز درس -->
             <button id="doneTaskBtn" class="btn-success">✅ أنجزت درساً</button>
 
-            <!-- رسالة تحفيزية -->
             <div class="motivation-box">
                 <p id="motivationMessage">💪 التركيز هو مفتاح النجاح، واصل!</p>
             </div>
 
-            <!-- خيارات إضافية -->
             <div class="extra-options">
                 <div class="sound-option">
                     <label>🎵 صوت</label>
@@ -769,13 +675,10 @@
             </div>
 
             <p class="status-message" id="statusMsg">✨ جاهز للتركيز</p>
-
         </div>
     </section>
 
-    <!-- ============================================================
-    جافا سكريبت
-    ============================================================ -->
+    <!-- ====== جافا سكريبت ====== -->
     <script>
         // ====== بيانات التقنيات ======
         const techniques = {
@@ -837,134 +740,174 @@
         const goalDisplay = document.getElementById('goalDisplay');
         const goalProgress = document.getElementById('goalProgress');
         const motivationMessage = document.getElementById('motivationMessage');
-
-        // عناصر الترحيب
         const welcomeTitle = document.getElementById('welcomeTitle');
         const welcomeSub = document.getElementById('welcomeSub');
         const welcomeDef = document.getElementById('welcomeDef');
 
-        // ====== أصوات الخلفية (تشغيل فعلي) ======
-        const audioCtx = new(window.AudioContext || window.webkitAudioContext)();
-        let audioNodes = [];
-        let isSoundPlaying = false;
-        let soundInterval;
-
-        function playSound(type) {
-            stopSound();
-
-            if (type === 'none') {
-                statusMsg.textContent = isEnglish ? '🔇 Sound off' : '🔇 بدون صوت';
-                return;
-            }
-
-            try {
-                // نولّد صوتاً باستخدام Oscillator لمحاكاة الأصوات الطبيعية
-                const oscillator = audioCtx.createOscillator();
-                const gainNode = audioCtx.createGain();
-                const filter = audioCtx.createBiquadFilter();
-
-                oscillator.connect(filter);
-                filter.connect(gainNode);
-                gainNode.connect(audioCtx.destination);
-
-                let frequency = 200;
-                let typeOsc = 'sine';
-                let gainValue = 0.08;
-
-                switch (type) {
-                    case 'rain':
-                        frequency = 400;
-                        typeOsc = 'sawtooth';
-                        gainValue = 0.04;
-                        filter.type = 'lowpass';
-                        filter.frequency.value = 600;
-                        break;
-                    case 'fire':
-                        frequency = 80;
-                        typeOsc = 'sawtooth';
-                        gainValue = 0.06;
-                        filter.type = 'lowpass';
-                        filter.frequency.value = 200;
-                        break;
-                    case 'waves':
-                        frequency = 150;
-                        typeOsc = 'sine';
-                        gainValue = 0.07;
-                        filter.type = 'lowpass';
-                        filter.frequency.value = 300;
-                        break;
-                    case 'forest':
-                        frequency = 300;
-                        typeOsc = 'triangle';
-                        gainValue = 0.05;
-                        filter.type = 'bandpass';
-                        filter.frequency.value = 500;
-                        filter.Q.value = 1.5;
-                        break;
-                    default:
-                        return;
-                }
-
-                oscillator.type = typeOsc;
-                oscillator.frequency.value = frequency;
-                gainNode.gain.value = gainValue;
-
-                oscillator.start();
-                oscillator.stop(audioCtx.currentTime + 0.5);
-
-                // نكرر الصوت بشكل مستمر
-                soundInterval = setInterval(() => {
-                    if (!isRunning) return;
-                    const osc2 = audioCtx.createOscillator();
-                    const gain2 = audioCtx.createGain();
-                    const filter2 = audioCtx.createBiquadFilter();
-
-                    osc2.connect(filter2);
-                    filter2.connect(gain2);
-                    gain2.connect(audioCtx.destination);
-
-                    osc2.type = typeOsc;
-                    osc2.frequency.value = frequency + (Math.random() * 20 - 10);
-                    gain2.gain.value = gainValue * (0.5 + Math.random() * 0.5);
-                    filter2.type = filter.type;
-                    filter2.frequency.value = filter.frequency.value + (Math.random() * 50 - 25);
-
-                    osc2.start();
-                    osc2.stop(audioCtx.currentTime + 0.4);
-
-                    audioNodes.push(osc2, gain2, filter2);
-                }, 300);
-
-                isSoundPlaying = true;
-                statusMsg.textContent = isEnglish ? `🎵 Playing: ${type}` : `🎵 تشغيل: ${type}`;
-
-            } catch (e) {
-                console.log('Sound not available');
-            }
-        }
-
-        function stopSound() {
-            if (soundInterval) {
-                clearInterval(soundInterval);
-                soundInterval = null;
-            }
-            audioNodes.forEach(node => {
-                try { node.disconnect(); } catch (e) {}
-            });
-            audioNodes = [];
-            isSoundPlaying = false;
-        }
+        // ====== زر الدخول ======
+        enterBtn.addEventListener('click', function() {
+            console.log('تم الضغط على ابدأ رحلة التركيز');
+            welcomeScreen.classList.remove('active');
+            mainScreen.classList.add('active');
+        });
 
         // ====== اللغة ======
-        function toggleLanguage() {
+        langToggle.addEventListener('click', function() {
             isEnglish = !isEnglish;
             document.body.classList.toggle('lang-en', isEnglish);
             langToggle.textContent = isEnglish ? '🇸🇦 عربي' : '🇬🇧 English';
 
-            // نصوص الترحيب
             if (isEnglish) {
                 welcomeTitle.innerHTML = 'Welcome to <span class="gold">Learning &<br>Focus Strategies</span>';
                 welcomeSub.textContent = 'Master the art of focus and boost your academic performance';
                 welcomeDef.innerHTML =
                     '<strong>📖 About this section:</strong><br>This section is dedicated to developing learning and focus skills through proven techniques like <strong>Pomodoro</strong>, <strong>52/17</strong>, and <strong>Deep Study</strong>. Our goal is to help you achieve your academic goals efficiently and without burnout.';
-                document.querySelector('#goalLabel
+                document.querySelector('#goalLabel').textContent = '🎯 Set your goal:';
+                document.querySelector('.btn-success').textContent = '✅ Completed a lesson';
+                statusMsg.textContent = '✨ Ready to focus';
+            } else {
+                welcomeTitle.innerHTML = 'أهلاً بك في <span class="gold">قسم استراتيجيات<br>التعلم والتركيز</span>';
+                welcomeSub.textContent = 'حيث تتقن فن التركيز وتُحسّن أداءك الدراسي';
+                welcomeDef.innerHTML =
+                    '<strong>📖 تعريف القسم:</strong><br>هذا القسم مخصص لتطوير مهارات التعلم والتركيز من خلال تقنيات مدروسة مثل <strong>بومودورو</strong>، <strong>52/17</strong>، و<strong>الدراسة المكثفة</strong>. نهدف إلى مساعدتك على تحقيق أهدافك الأكاديمية بكفاءة وبدون إرهاق.';
+                document.querySelector('#goalLabel').textContent = '🎯 حدّد هدفك:';
+                document.querySelector('.btn-success').textContent = '✅ أنجزت درساً';
+                statusMsg.textContent = '✨ جاهز للتركيز';
+            }
+        });
+
+        // ====== تبديل التقنيات ======
+        techBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                techBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentTech = this.dataset.tech;
+                resetTimer();
+                updateDisplay();
+            });
+        });
+
+        // ====== الهدف ======
+        goalSelect.addEventListener('change', function() {
+            const val = this.value;
+            currentGoal = val;
+            const parts = val.split('-');
+            const num = parseInt(parts[0]);
+            const type = parts[1];
+            goalLessons = num;
+            const label = isEnglish ?
+                (type === 'lesson' ? `${num} lesson${num > 1 ? 's' : ''}` : `${num} unit${num > 1 ? 's' : ''}`) :
+                (type === 'lesson' ? `${num} درس${num > 1 ? 'ً' : ''}` : `${num} وحدة${num > 1 ? 'ً' : ''}`);
+            goalDisplay.textContent = isEnglish ? `🎯 Goal: ${label}` : `🎯 الهدف: ${label}`;
+            updateGoalProgress();
+        });
+
+        function updateGoalProgress() {
+            goalProgress.textContent = `${taskCount}/${goalLessons}`;
+            if (taskCount >= goalLessons) {
+                motivationMessage.textContent = isEnglish ?
+                    '🎉 Congratulations! You achieved your goal! 🎉' :
+                    '🎉 مبروك! لقد حققت هدفك! 🎉';
+                document.querySelector('.btn-success').style.borderColor = '#d4a847';
+                document.querySelector('.btn-success').style.color = '#d4a847';
+            } else {
+                document.querySelector('.btn-success').style.borderColor = 'rgba(212, 168, 71, 0.1)';
+                document.querySelector('.btn-success').style.color = 'var(--text-primary)';
+            }
+        }
+
+        // ====== المؤقت ======
+        function updateDisplay() {
+            const m = String(minutes).padStart(2, '0');
+            const s = String(seconds).padStart(2, '0');
+            timerDisplay.textContent = `${m}:${s}`;
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const tech = techniques[currentTech];
+            const total = isBreak ? (sessionCount % 4 === 0 ? tech.longBreak : tech.break) : tech.focus;
+            const totalSeconds = total * 60;
+            const currentSeconds = minutes * 60 + seconds;
+            const progress = ((totalSeconds - currentSeconds) / totalSeconds) * 534;
+            progressRing.style.strokeDashoffset = 534 - progress;
+        }
+
+        function startTimer() {
+            if (isRunning) return;
+            isRunning = true;
+            statusMsg.textContent = isBreak ? (isEnglish ? '☕ Break time' : '☕ وقت الراحة') : (isEnglish ? '🧠 Focus now!' :
+                '🧠 ركّز الآن!');
+            phaseLabel.textContent = isBreak ? (isEnglish ? 'Break' : 'راحة') : (isEnglish ? 'Focus' : 'تركيز');
+
+            timer = setInterval(() => {
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        clearInterval(timer);
+                        isRunning = false;
+                        if (!isBreak) {
+                            taskCount++;
+                            taskCountEl.textContent = taskCount;
+                            totalTasks++;
+                            totalTasksEl.textContent = totalTasks;
+                            updateGoalProgress();
+
+                            if (sessionCount % 4 === 0) {
+                                minutes = techniques[currentTech].longBreak;
+                                statusMsg.textContent = isEnglish ? '🎉 Long break!' : '🎉 راحة طويلة!';
+                            } else {
+                                minutes = techniques[currentTech].break;
+                                statusMsg.textContent = isEnglish ? '☕ Short break' : '☕ راحة قصيرة';
+                            }
+                            isBreak = true;
+                            phaseLabel.textContent = isEnglish ? 'Break' : 'راحة';
+                        } else {
+                            minutes = techniques[currentTech].focus;
+                            isBreak = false;
+                            sessionCount++;
+                            sessionCountEl.textContent = sessionCount;
+                            statusMsg.textContent = isEnglish ? '🔁 New session' : '🔁 جلسة جديدة';
+                            phaseLabel.textContent = isEnglish ? 'Focus' : 'تركيز';
+                            // رسالة تحفيزية عشوائية
+                            const randomQuote = motivationalQuotes[Math.floor(Math.random() * motivationalQuotes.length)];
+                            motivationMessage.textContent = randomQuote;
+                        }
+                        seconds = 0;
+                        updateDisplay();
+                        return;
+                    }
+                    minutes--;
+                    seconds = 59;
+                } else {
+                    seconds--;
+                }
+                totalSecondsToday++;
+                updateTodayTime();
+                updateDisplay();
+            }, 1000);
+        }
+
+        function pauseTimer() {
+            clearInterval(timer);
+            isRunning = false;
+            statusMsg.textContent = isEnglish ? '⏸ Paused' : '⏸ متوقف مؤقتاً';
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            isRunning = false;
+            const tech = techniques[currentTech];
+            minutes = tech.focus;
+            seconds = 0;
+            isBreak = false;
+            sessionCount = 1;
+            sessionCountEl.textContent = sessionCount;
+            phaseLabel.textContent = isEnglish ? 'Focus' : 'تركيز';
+            statusMsg.textContent = isEnglish ? '🔄 Reset' : '🔄 تمت إعادة الضبط';
+            updateDisplay();
+        }
+
+        function updateTodayTime() {
+            const hrs = Math.floor(totalSecondsToday / 3600);
+            const mins = Math.floor((totalSecondsToday % 3600) / 60);
+            todayTimeEl.textContent = `${String(hrs).padStart(2,
