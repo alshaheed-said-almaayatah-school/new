@@ -6,7 +6,8 @@
     transition: all 0.3s ease;
 }
 
-html, body {
+html,
+body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -150,6 +151,7 @@ html, body {
     cursor: pointer;
     margin-bottom: 1.2rem;
     transition: 0.3s;
+    touch-action: manipulation;
 }
 
 .lang-toggle:hover {
@@ -170,6 +172,8 @@ html, body {
     transition: 0.4s;
     box-shadow: 0 8px 30px rgba(212, 168, 71, 0.2);
     letter-spacing: 0.5px;
+    touch-action: manipulation;
+    min-height: 50px;
 }
 
 .btn-primary:hover {
@@ -196,6 +200,8 @@ header {
     margin-bottom: 1.2rem;
     padding-bottom: 0.8rem;
     border-bottom: 1px solid rgba(212, 168, 71, 0.08);
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 header h2 {
@@ -209,17 +215,23 @@ header h2 .gold {
     color: var(--gold);
 }
 
-#backBtn {
+.back-btn {
     background: transparent;
     border: none;
     color: var(--gold);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     cursor: pointer;
     padding: 0 5px;
     transition: 0.3s;
+    touch-action: manipulation;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#backBtn:hover {
+.back-btn:hover {
     transform: scale(1.2);
     color: var(--gold-light);
 }
@@ -260,6 +272,8 @@ header h2 .gold {
     font-weight: 400;
     transition: 0.3s;
     touch-action: manipulation;
+    min-height: 44px;
+    min-width: 44px;
 }
 
 .tech-btn:hover {
@@ -301,6 +315,8 @@ header h2 .gold {
     font-size: 0.85rem;
     cursor: pointer;
     touch-action: manipulation;
+    min-height: 44px;
+    min-width: 44px;
 }
 
 .goal-section select:focus {
@@ -391,6 +407,11 @@ header h2 .gold {
     color: var(--text-secondary);
     transition: 0.3s;
     touch-action: manipulation;
+    min-width: 52px;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ctrl-btn:hover {
@@ -422,6 +443,8 @@ header h2 .gold {
     margin: 0.3rem 0 0.6rem;
     font-size: 0.8rem;
     color: var(--text-secondary);
+    flex-wrap: wrap;
+    gap: 0.3rem;
 }
 
 .session-counter .gold {
@@ -440,6 +463,7 @@ header h2 .gold {
     cursor: pointer;
     transition: 0.3s;
     touch-action: manipulation;
+    min-height: 50px;
 }
 
 .btn-success:hover {
@@ -471,7 +495,7 @@ header h2 .gold {
 
 .extra-options {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 0.8rem;
     margin: 0.6rem 0 0.3rem;
     flex-wrap: wrap;
@@ -493,6 +517,8 @@ header h2 .gold {
     color: var(--text-secondary);
     cursor: pointer;
     touch-action: manipulation;
+    min-height: 40px;
+    min-width: 44px;
 }
 
 .extra-options select:hover,
@@ -526,7 +552,6 @@ body.lang-en .welcome-box .definition {
     direction: ltr;
 }
 
-/* ====== توافق مع الهاتف ====== */
 @media (max-width: 480px) {
     body {
         padding: 0.5rem;
@@ -537,10 +562,6 @@ body.lang-en .welcome-box .definition {
         padding: 1.5rem 1rem;
         border-radius: 28px;
         min-height: 95vh;
-    }
-
-    .welcome-box {
-        padding: 0;
     }
 
     .welcome-box h1 {
@@ -579,6 +600,8 @@ body.lang-en .welcome-box .definition {
         width: 48px;
         height: 48px;
         font-size: 1.1rem;
+        min-width: 48px;
+        min-height: 48px;
     }
 
     .goal-section {
@@ -605,18 +628,18 @@ body.lang-en .welcome-box .definition {
     .tech-btn {
         font-size: 0.7rem;
         padding: 0.3rem 0.7rem;
+        min-height: 38px;
     }
 
     .session-counter {
         font-size: 0.7rem;
         padding: 0.4rem 0.8rem;
-        flex-wrap: wrap;
-        gap: 0.3rem;
     }
 
     .btn-success {
         font-size: 0.85rem;
         padding: 0.6rem;
+        min-height: 44px;
     }
 
     .motivation-box {
@@ -630,21 +653,26 @@ body.lang-en .welcome-box .definition {
 
     .extra-options {
         gap: 0.5rem;
+        justify-content: center;
     }
 
     .extra-options select,
     .extra-options button {
         font-size: 0.7rem;
         padding: 0.2rem 0.6rem;
+        min-height: 36px;
     }
 
     .lang-toggle {
         font-size: 0.7rem;
         padding: 0.3rem 1rem;
+        min-height: 40px;
     }
 
-    #backBtn {
-        font-size: 1.2rem;
+    .back-btn {
+        font-size: 1.4rem;
+        min-width: 40px;
+        min-height: 40px;
     }
 }
 
@@ -666,21 +694,25 @@ body.lang-en .welcome-box .definition {
     }
 }
 
-/* ====== تحسينات للمس ====== */
+/* ====== تحسينات اللمس للهواتف ====== */
 @media (pointer: coarse) {
     button,
     select,
     .tech-btn,
     .ctrl-btn,
     .btn-success,
-    .btn-primary {
-        min-height: 44px;
-        min-width: 44px;
+    .btn-primary,
+    .back-btn,
+    .lang-toggle,
+    .extra-options button,
+    .extra-options select {
+        min-height: 48px;
+        min-width: 48px;
     }
 
     .ctrl-btn {
-        min-width: 48px;
-        min-height: 48px;
+        min-width: 52px;
+        min-height: 52px;
     }
 
     .tech-btn {
@@ -689,5 +721,13 @@ body.lang-en .welcome-box .definition {
 
     select {
         padding: 0.4rem 1rem;
+    }
+
+    .btn-primary {
+        min-height: 54px;
+    }
+
+    .btn-success {
+        min-height: 52px;
     }
 }
